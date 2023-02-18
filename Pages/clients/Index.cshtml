@@ -1,0 +1,40 @@
+﻿@page
+@model om.Pages.clients.IndexModel
+@{
+}
+
+<br>
+<h2>list of clients</h2>
+<a class="btn btn-primary " href='/clients/create'>New client</a>
+<table class="table">
+   
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>MAILID</th>
+            <th>PHONE</th>
+            <th>ADDRESS</th>
+            <th>CREATEDAT</th>
+            <th>ACTION</th>
+
+        </tr>
+   
+    <tbody>
+        @foreach(var item in Model.listclients)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.email</td>
+                <td>@item.phone</td>
+                <td>@item.address</td>
+                <td>@item.created_at</td>
+                <td>
+                    <a class="btn btn-primary" href="/clients/Edit?id=@item.id">Edit</a>
+                    <a class="btn btn-primary" href="/clients/Delete?id=@item.id">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
